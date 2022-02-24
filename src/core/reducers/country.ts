@@ -2,12 +2,12 @@ import { handleActions } from 'redux-actions';
 import { CountryActionTypes } from '../actions/country';
 
 export interface IState {
-  currentCountry: null | string,
-  currentCurrency: null | string,
-  country: null | string,
-  userChoseCurrency: null | string,
+  currentCountry: string | null,
+  currentCurrency: string | null,
+  country: string | null,
+  userChoseCurrency: string | null,
   isLoading: boolean,
-  flagUrl: null | string,
+  flagUrl: string | null,
   error: boolean
 }
 
@@ -27,11 +27,11 @@ export const reducer = handleActions<IState>(
       ...state,
       isLoading: true
     }),
-    [CountryActionTypes.getUserCountryLocationSuccess]: (state: IState, action: { payload: { country_code: string, currency_code: string, country: string, userChoseCurrency: null | string } }) => ({
+    [CountryActionTypes.getUserCountryLocationSuccess]: (state: IState, action: { payload: { countryCode: string | null, currencyCode: string | null, country: string | null, userChoseCurrency: string | null } }) => ({
       ...state,
       isLoading: false,
-      currentCountry: action.payload.country_code,
-      currentCurrency: action.payload.currency_code,
+      currentCountry: action.payload.countryCode,
+      currentCurrency: action.payload.currencyCode,
       country: action.payload.country,
       userChoseCurrency: action.payload.userChoseCurrency,
       error: false,

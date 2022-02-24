@@ -2,10 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { useSelector } from 'react-redux';
-import { List } from '../components/List';
-import { COLOR_SCHEME } from '../constans/colorScheme';
-import { CONVERTER_PAGE_TEXTS } from '../constans/texts';
-import { convertCurrency } from '../../services/currency';
+import { List } from '../core/components/List';
+import { COLOR_SCHEME } from '../core/constans/colorScheme';
+import { CONVERTER_PAGE_TEXTS } from '../core/constans/texts';
+import { convertCurrency } from '../services/currency';
 
 export const Converter: React.FunctionComponent = () => {
 

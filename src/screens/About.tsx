@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { ABOUT_PAGE_TEXTS, CONVERTER_PAGE_TEXTS, EXCHANGE_RATES_PAGE_TEXTS, HOME_PAGE_TEXTS, SETTINGS_PAGE_TEXTS } from '../constans/texts';
-import Slider from '../components/Slider';
+import { ABOUT_PAGE_TEXTS, CONVERTER_PAGE_TEXTS, EXCHANGE_RATES_PAGE_TEXTS, HOME_PAGE_TEXTS, SETTINGS_PAGE_TEXTS } from '../core/constans/texts';
+import Slider from '../core/components/Slider';
 import { Home } from './Home';
 import { ExchangeRates } from './ExchangeRates';
 import { Settings } from './Settings';
-import { generateID } from '../helpers/generateID';
+import { generateID } from '../core/helpers/generateID';
 import { Converter } from './Converter';
 
 export const About: React.FunctionComponent = () => {

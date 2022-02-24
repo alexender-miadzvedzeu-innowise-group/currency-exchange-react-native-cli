@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { MyDrawer } from './src/core/screens';
+import { MyDrawer } from './src/screens';
 import configureStore from './src/core/reducers';
-import { Provider, useDispatch } from 'react-redux';
-import { getUserCountryLocationThunk } from './src/core/thunks/country';
+import { Provider } from 'react-redux';
 
 export const { store } = configureStore();
 

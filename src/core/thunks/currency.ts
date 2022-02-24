@@ -10,7 +10,7 @@ export const listAllCurrenciesThunk = () => {
   return async (dispatch: Dispatch) => {
     dispatch(listAllCurrenciesAction())
     try {
-      const currencies = await CurrenciesService.listAllCurrencies();
+      const currencies: {[key: string]: string}[] | null = await CurrenciesService.listAllCurrencies();
       dispatch(listAllCurrenciesSuccessAction(currencies))
     } catch (error) {
       console.log(error);
@@ -25,11 +25,11 @@ export const getExchangeRatesThunk = () => {
       dispatch(getExchangeRatesAction())
       const rates = await getData(ASYNC_STORAGE_KEYS.rates);
       const userChoseCurrency = await getData(ASYNC_STORAGE_KEYS.selectedCurrentCurrency);
-      const { currency_code } = await CountryService.getLocalCountry();
+      const { currencyCode } = await CountryService.getLocalCountry();
 
-      const from = userChoseCurrency ? userChoseCurrency : currency_code;
+      const from = userChoseCurrency ? userChoseCurrency : currencyCode;
       const toInArr = rates?.split(',') || [];
-      const rateAmounts = [];
+      const rateAmounts: {from: string, to: string, rateAmount: string | number}[] = []
 
       for (const to of toInArr) {
         const rateAmount = await convertCurrency(from, to, 1);

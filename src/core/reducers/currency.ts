@@ -1,6 +1,5 @@
 import { handleActions } from 'redux-actions';
 import { CurrencyActionTypes } from '../actions/currency';
-import { IListAllCurrenciesSuccessPayload } from '../actions/currency';
 
 export interface IState {
   currencies: [{
@@ -24,7 +23,7 @@ export const reducer = handleActions<IState>(
       ...state,
       isLoading: true
     }),
-    [CurrencyActionTypes.listAllCurrenciesSuccess]: (state: IState, action: { payload: IListAllCurrenciesSuccessPayload}) => ({
+    [CurrencyActionTypes.listAllCurrenciesSuccess]: (state: IState, action: { payload: {[key: string]: string}[] | null}) => ({
       ...state,
       isLoading: false,
       currencies: action.payload,

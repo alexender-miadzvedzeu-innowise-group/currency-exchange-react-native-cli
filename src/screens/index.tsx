@@ -6,8 +6,8 @@ import { Settings } from './Settings';
 import { About } from './About';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserCountryLocationThunk } from '../thunks/country';
-import { listAllCurrenciesThunk, getExchangeRatesThunk } from '../thunks/currency';
+import { getUserCountryLocationThunk } from '../core/thunks/country';
+import { listAllCurrenciesThunk, getExchangeRatesThunk } from '../core/thunks/currency';
 import { ExchangeRates } from './ExchangeRates';
 
 

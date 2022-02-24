@@ -10,15 +10,10 @@ export enum CurrencyActionTypes {
   getExchangeRatesFailed = '[Currency] getExchangeRatesFailed',
 }
 
-export interface IListAllCurrenciesSuccessPayload { 
-  [key:string]: string | null
-}
-
-
 export const listAllCurrenciesAction = createAction(CurrencyActionTypes.listAllCurrencies);
 export const listAllCurrenciesSuccessAction = createAction(
   CurrencyActionTypes.listAllCurrenciesSuccess,
-  (payload: IListAllCurrenciesSuccessPayload) => payload 
+  (payload: {[key: string]: string}[] | null) => payload 
 );
 export const listAllCurrenciesFailedAction = createAction(CurrencyActionTypes.listAllCurrenciesFailed);
 
@@ -26,6 +21,6 @@ export const listAllCurrenciesFailedAction = createAction(CurrencyActionTypes.li
 export const getExchangeRatesAction = createAction(CurrencyActionTypes.getExchangeRates);
 export const getExchangeRatesSuccessAction = createAction(
   CurrencyActionTypes.getExchangeRatesSuccess,
-  (payload: []) => payload
+  (payload: {from: string, to: string, rateAmount: string | number}[]) => payload
 )
 export const getExchangeRatesFailedAction = createAction(CurrencyActionTypes.getExchangeRatesFailed)

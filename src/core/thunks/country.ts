@@ -8,11 +8,11 @@ export const getUserCountryLocationThunk = () => {
   return async (dispatch: Dispatch) => {
     dispatch(getUserCountryLocationAction())
     try {
-      const { country_code, currency_code, country } = await CountryService.getLocalCountry();
-      const userChoseCurrency = await getData(ASYNC_STORAGE_KEYS.selectedCurrentCurrency);
+      const { countryCode, currencyCode, country } = await CountryService.getLocalCountry();
+      const userChoseCurrency: string | null = await getData(ASYNC_STORAGE_KEYS.selectedCurrentCurrency);
       dispatch(getUserCountryLocationSuccessAction({ 
-        country_code, 
-        currency_code, 
+        countryCode, 
+        currencyCode, 
         country,
         userChoseCurrency
      }))

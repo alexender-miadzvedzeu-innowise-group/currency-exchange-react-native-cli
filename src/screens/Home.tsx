@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootReducer } from '../reducers';
-import { Preloader } from '../components/Preloader';
-import { HOME_PAGE_TEXTS } from '../constans/texts';
-import { renderDinoText } from '../helpers/renderDinoText';
+import { IRootReducer } from '../core/reducers';
+import { Preloader } from '../core/components/Preloader';
+import { HOME_PAGE_TEXTS } from '../core/constans/texts';
+import { renderDinoText } from '../core/helpers/renderDinoText';
 import { useState } from 'react';
-import { List } from '../components/List';
-import { COLOR_SCHEME } from '../constans/colorScheme';
-import { storeData, getData, removeData } from '../helpers/asyncStorage';
-import { getUserCountryLocationSuccessAction } from '../actions/country';
-import { getExchangeRatesThunk } from '../thunks/currency';
-import { ASYNC_STORAGE_KEYS } from '../constans/asyncStorageKeys';
+import { List } from '../core/components/List';
+import { COLOR_SCHEME } from '../core/constans/colorScheme';
+import { storeData, getData, removeData } from '../core/helpers/asyncStorage';
+import { getUserCountryLocationSuccessAction } from '../core/actions/country';
+import { getExchangeRatesThunk } from '../core/thunks/currency';
+import { ASYNC_STORAGE_KEYS } from '../core/constans/asyncStorageKeys';
 
 export const Home: React.FunctionComponent = () => {
 
@@ -33,8 +33,8 @@ export const Home: React.FunctionComponent = () => {
       dispatch(getExchangeRatesThunk())
     }
     dispatch(getUserCountryLocationSuccessAction({
-      country_code: country.currentCountry, 
-      currency_code: country.currentCurrency,
+      countryCode: country.currentCountry, 
+      currencyCode: country.currentCurrency,
       country: country.country,
       userChoseCurrency: userChoseCurrency
     }))
@@ -49,8 +49,8 @@ export const Home: React.FunctionComponent = () => {
       dispatch(getExchangeRatesThunk())
     }
     dispatch(getUserCountryLocationSuccessAction({
-      country_code: country.currentCountry, 
-      currency_code: country.currentCurrency,
+      countryCode: country.currentCountry, 
+      currencyCode: country.currentCurrency,
       country: country.country,
       userChoseCurrency
     }))

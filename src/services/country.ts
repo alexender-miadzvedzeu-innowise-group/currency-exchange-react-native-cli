@@ -10,15 +10,15 @@ const getMyIPv4 = async () => {
   }
 }
 
-export const getLocalCountry = async (): Promise<{ country_code:string, currency_code:string, country: string }> => {
+export const getLocalCountry = async (): Promise<{ countryCode:string, currencyCode:string, country: string }> => {
   try {
     const IPv4 = await getMyIPv4();
     const response = await fetch(`http://ipwhois.app/json/${IPv4}`);
     const request = await response.json();
-    const { country_code, currency_code, country } = request;
-    return { country_code, currency_code, country };
+    const { country_code: countryCode, currency_code: currencyCode, country } = request;
+    return { countryCode, currencyCode, country };
   } catch (error) {
     console.log(error);
-    return { country_code: '', currency_code: '', country: '' }; 
+    return { countryCode: '', currencyCode: '', country: '' }; 
   }
 }

@@ -8,12 +8,13 @@ export const storeData = async (key: string, value: any) => {
   }
 } 
 
-export const getData = async (key: string) => {
+export const getData = async (key: string): Promise<string | null> => {
   try {
     const value = await AsyncStorage.getItem(key);
     return value
   } catch(error) {
     console.log(error);
+    return null;
   }
 }
 

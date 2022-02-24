@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
-import { IRootReducer } from '../reducers';
-import { Preloader } from '../components/Preloader';
-import { COLOR_SCHEME } from '../constans/colorScheme';
-import { EXCHANGE_RATES_PAGE_TEXTS } from '../constans/texts';
-import { renderDinoText } from '../helpers/renderDinoText';
+import { IRootReducer } from '../core/reducers';
+import { Preloader } from '../core/components/Preloader';
+import { COLOR_SCHEME } from '../core/constans/colorScheme';
+import { EXCHANGE_RATES_PAGE_TEXTS } from '../core/constans/texts';
+import { renderDinoText } from '../core/helpers/renderDinoText';
 
 export const ExchangeRates: React.FunctionComponent = () => {
   

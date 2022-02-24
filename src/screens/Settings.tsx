@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { COLOR_SCHEME } from '../constans/colorScheme';
-import { SETTINGS_PAGE_TEXTS } from '../constans/texts';
-import { IRootReducer } from '../reducers';
-import { List } from '../components/List';
-import { getData, storeData } from '../helpers/asyncStorage';
-import { ASYNC_STORAGE_KEYS } from '../constans/asyncStorageKeys';
-import { getExchangeRatesThunk } from '../thunks/currency';
-import { Preloader } from '../components/Preloader';
+import { COLOR_SCHEME } from '../core/constans/colorScheme';
+import { SETTINGS_PAGE_TEXTS } from '../core/constans/texts';
+import { IRootReducer } from '../core/reducers';
+import { List } from '../core/components/List';
+import { getData, storeData } from '../core/helpers/asyncStorage';
+import { ASYNC_STORAGE_KEYS } from '../core/constans/asyncStorageKeys';
+import { getExchangeRatesThunk } from '../core/thunks/currency';
+import { Preloader } from '../core/components/Preloader';
 
 export const Settings: React.FunctionComponent = () => {
   
