@@ -1,37 +1,21 @@
-import 'react-native-gesture-handler'
 import * as React from 'react';
-import { Button, View } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { MyDrawer } from './src/core/screens';
+import configureStore from './src/core/reducers';
+import { Provider, useDispatch } from 'react-redux';
+import { getUserCountryLocationThunk } from './src/core/thunks/country';
 
-function HomeScreen({ navigation }) {
+export const { store } = configureStore();
+
+const App: React.FunctionComponent = (): JSX.Element => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MyDrawer />
+      </NavigationContainer>
+    </Provider>
   );
 }
 
-function NotificationsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
-
-const Drawer = createDrawerNavigator();
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
+export default App;

@@ -1,0 +1,1 @@
+export const hideTextOverflow = (text: string, limit: number) => text.length > limit ? `${text.substring(0, limit - 3)}...` : text
