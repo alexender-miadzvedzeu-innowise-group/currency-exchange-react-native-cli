@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     height: 40,
-    borderBottomColor: COLOR_SCHEME.colorMiddle,
+    borderBottomColor: COLOR_SCHEME.primary,
     borderStyle: 'solid',
     borderBottomWidth: 1,
     marginBottom: 3
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     marginVertical: 3,
     paddingVertical: 5,
     paddingHorizontal: 7,
-    backgroundColor: COLOR_SCHEME.colorDark,
+    backgroundColor: COLOR_SCHEME.primary,
     borderRadius: 3,
     justifyContent: 'center',
     alignItems: 'center'

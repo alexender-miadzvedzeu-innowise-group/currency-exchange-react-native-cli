@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { MyDrawer } from './src/screens';
+import { MyDrawer, MyTabs } from './src/screens';
 import configureStore from './src/core/reducers';
 import { Provider } from 'react-redux';
 import { LogBox } from 'react-native';

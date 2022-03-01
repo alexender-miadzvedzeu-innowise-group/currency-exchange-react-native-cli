@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     paddingBottom: 130,
     paddingTop: 25,
     borderTopWidth: 1,
-    borderTopColor: COLOR_SCHEME.colorLight
+    borderTopColor: COLOR_SCHEME.primary
   },
   bottomBlockText: {
     color: COLOR_SCHEME.textColor,

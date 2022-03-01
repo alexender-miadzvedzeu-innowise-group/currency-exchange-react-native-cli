@@ -8,11 +8,11 @@
 // }
 
 export const COLOR_SCHEME = {
-  background: '#080808',
+  background: '#F5EDED',
   modalBackground: '#08080880',
-  colorLight: '#bfbdc1',
-  colorMiddle: '#6d6a75',
-  colorDark: '#37323e',
-  warn: '#dd9999',
-  textColor: '#eae6e5'
+  primary: '#D72323',
+  primaryLight: '#D07272',
+  secondary: '#3E3636',
+  textColor: '#000',
+  textColorActive: '#fff'
 }

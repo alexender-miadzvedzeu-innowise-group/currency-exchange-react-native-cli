@@ -1,5 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Home } from './Home';
 import { Converter } from './Converter';
 import { Settings } from './Settings';
@@ -11,8 +12,11 @@ import { listAllCurrenciesThunk, getExchangeRatesThunk } from '../core/thunks/cu
 import { ExchangeRates } from './ExchangeRates';
 import { CutomDrawer } from './CustomDrawer';
 import { COLOR_SCHEME } from '../core/constans/colorScheme';
+import { View } from 'react-native';
 
 const Drawer = createDrawerNavigator();
+
+const Tab = createMaterialTopTabNavigator();
 
 export const MyDrawer: React.FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -27,16 +31,44 @@ export const MyDrawer: React.FunctionComponent = () => {
       drawerContent={props => <CutomDrawer {...props} />} 
       screenOptions={{ 
         headerShown: false,
-        drawerActiveBackgroundColor: COLOR_SCHEME.colorMiddle,
+        drawerActiveBackgroundColor: COLOR_SCHEME.primary,
         drawerActiveTintColor: COLOR_SCHEME.background,
-        drawerInactiveTintColor: COLOR_SCHEME.colorLight
+        drawerInactiveTintColor: COLOR_SCHEME.primary
       }}
     >
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Converter" component={Converter} />
-      <Drawer.Screen name="Exchange rates" component={ExchangeRates} />
-      <Drawer.Screen name="Settings" component={Settings} />
+      <Drawer.Screen name="Home" component={HomeTabs} />
       <Drawer.Screen name="About" component={About} />
     </Drawer.Navigator>
   )
+}
+
+export const HomeTabs = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: COLOR_SCHEME.textColorActive,
+        tabBarInactiveTintColor: COLOR_SCHEME.textColor,
+        tabBarLabelStyle: { fontSize: 12 },
+        tabBarPressColor: '#fff',
+        tabBarStyle: { 
+
+        },
+        tabBarItemStyle: {
+
+        },
+        tabBarScrollEnabled: true,
+        tabBarIndicatorStyle: {
+          height: '100%',
+          borderRadius: 25,
+          backgroundColor: COLOR_SCHEME.primary
+        }
+      }}
+      tabBarPosition='top'
+    >
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Converter" component={Converter} />
+      <Tab.Screen name="Rates" component={ExchangeRates} />
+      <Tab.Screen name="Settings" component={Settings} />
+    </Tab.Navigator>
+  );
 }

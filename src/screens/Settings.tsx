@@ -93,13 +93,13 @@ export const Settings: React.FunctionComponent = () => {
                   style={styles.addButton}
                   onPress={onAddButtonPressed}
                 >
-                  <Text>Add</Text>
+                  <Text style={styles.addButtonText}>Add</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
                   style={styles.deleteButton}
                   onPress={onDeleteButtonPress}
                 >
-                  <Text>Delete</Text>
+                  <Text style={styles.deleteButtonText}>Delete</Text>
                 </TouchableOpacity>
               </>
             ) : (
@@ -108,13 +108,13 @@ export const Settings: React.FunctionComponent = () => {
                   style={styles.addButton}
                   onPress={onSubmitButtonPress}
                 >
-                  <Text>Submit</Text>
+                  <Text style={styles.addButtonText}>Submit</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
                   style={styles.deleteButton}
                   onPress={onCancelButtonPress}
                 >
-                  <Text>Cancel</Text>
+                  <Text style={styles.deleteButtonText}>Cancel</Text>
                 </TouchableOpacity>
               </>
             )}
@@ -163,22 +163,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   addButton: {
-    backgroundColor: COLOR_SCHEME.colorMiddle,
+    // backgroundColor: COLOR_SCHEME.primary,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: COLOR_SCHEME.primary,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 5,
+    borderRadius: 20,
     width: 70,
     justifyContent: 'center',
     alignItems: 'center'
   },
   deleteButton: {
-    backgroundColor: COLOR_SCHEME.warn,
+    backgroundColor: COLOR_SCHEME.primary,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 5,
+    borderRadius: 20,
     width: 70,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   topArticle: {
     flexDirection: 'column',
@@ -199,16 +202,24 @@ const styles = StyleSheet.create({
     width: 150,
     paddingVertical: 10,
     marginVertical: 5,
-    backgroundColor: COLOR_SCHEME.colorLight,
+    backgroundColor: COLOR_SCHEME.primary,
     borderRadius: 5,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: COLOR_SCHEME.textColorActive
   },
   rateItemInProcessToDell: {
     width: 150,
     paddingVertical: 10,
     marginVertical: 5,
-    backgroundColor: COLOR_SCHEME.warn,
+    backgroundColor: COLOR_SCHEME.secondary,
     borderRadius: 5,
+    color: COLOR_SCHEME.textColorActive,
     textAlign: 'center'
   },
+  addButtonText: {
+    color: COLOR_SCHEME.textColor
+  },
+  deleteButtonText: {
+    color: COLOR_SCHEME.textColorActive
+  }
 })

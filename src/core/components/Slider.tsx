@@ -5,28 +5,24 @@ interface IProps {
   slides: { component: ReactElement, id: string, description: string }[]
 }
 
-const onStopPropagation = (e: { stopPropagation: () => void; }) => {
-  e.stopPropagation();
-}
-
 const Slider = (props: IProps) => {
   return (
     <>
       <View 
-        onTouchStart={onStopPropagation}
         style={styles.wrapper}>
         <FlatList
           style={styles.caruselWrapper}
           data={props.slides}
           renderItem={({ item }) => {
             return (
-              <View style={styles.slideWrapper}>
+              <View 
+                style={styles.slideWrapper}
+              >
                 <View style={styles.slide}>
                   {item.component}
                 </View>
                 <Text style={styles.description}>{item.description && item.description}</Text>
               </View>
-
             )}
           }
           showsHorizontalScrollIndicator={false}

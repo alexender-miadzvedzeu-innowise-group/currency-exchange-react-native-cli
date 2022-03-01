@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   wrapper: { 
     flex: 1, 
     alignItems: 'center',
-    backgroundColor: COLOR_SCHEME.background
+    // backgroundColor: COLOR_SCHEME.background
   },
   topArticle: {
     marginVertical: 15,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     height: 130,
     borderRadius: 15,
     padding: 10,
-    backgroundColor: COLOR_SCHEME.colorLight,
+    backgroundColor: '#fff',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   button: {
     marginHorizontal: "10%",
     height: 30,
-    backgroundColor: COLOR_SCHEME.colorMiddle,
+    backgroundColor: COLOR_SCHEME.primaryLight,
     borderRadius: 10,
     flex: 1,
     justifyContent: 'center',
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   buttonFilled: {
     marginHorizontal: "10%",
     height: 30,
-    backgroundColor: COLOR_SCHEME.colorDark,
+    backgroundColor: COLOR_SCHEME.primary,
     borderRadius: 10,
     flex: 1,
     justifyContent: 'center',
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   input: {
-    borderBottomColor: COLOR_SCHEME.colorMiddle,
+    borderBottomColor: COLOR_SCHEME.primary,
     borderStyle: 'solid',
     borderBottomWidth: 2,
     marginHorizontal: "10%",
@@ -154,13 +154,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 'auto',
     width: 100,
     height: 30,
-    backgroundColor: COLOR_SCHEME.warn,
+    backgroundColor: COLOR_SCHEME.secondary,
     borderRadius: 10,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   buttonText: {
-    color: COLOR_SCHEME.textColor
+    color: '#fff'
   }
 })

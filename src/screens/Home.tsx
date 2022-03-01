@@ -13,6 +13,10 @@ import { getUserCountryLocationSuccessAction } from '../core/actions/country';
 import { getExchangeRatesThunk } from '../core/thunks/currency';
 import { ASYNC_STORAGE_KEYS } from '../core/constans/asyncStorageKeys';
 import AnimatedShowGate from '../core/components/AnimatedShowGate';
+import { NavigationContainer } from '@react-navigation/native';
+import { MyTabs } from '.';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { Settings } from './Settings';
 
 export const Home: React.FunctionComponent = () => {
 
@@ -96,7 +100,7 @@ export const Home: React.FunctionComponent = () => {
       flexDirection: 'row',
       borderWidth: 1,
       borderStyle: 'solid',
-      borderColor: COLOR_SCHEME.colorDark,
+      borderColor: COLOR_SCHEME.primary,
       position: 'relative',
       overflow: 'hidden',
       borderRadius: 25,
@@ -107,12 +111,12 @@ export const Home: React.FunctionComponent = () => {
       position: 'absolute',
       height: 33,
       width: 120,
-      backgroundColor: COLOR_SCHEME.colorDark
+      backgroundColor: COLOR_SCHEME.primary
     },
     button: {
       width: 120,
       borderStyle: 'solid',
-      // backgroundColor: COLOR_SCHEME.colorDark,
+      // backgroundColor: COLOR_SCHEME.primary,
       paddingVertical: 7,
       // borderRadius: 3,
       justifyContent: 'center',
@@ -137,7 +141,6 @@ export const Home: React.FunctionComponent = () => {
       right: 0,
     }
   }
-
   return (
     <View style={styles.wrapper}>
       {!country.isLoading ? (
