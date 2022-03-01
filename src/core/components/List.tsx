@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import { TextInput, FlatList, StyleSheet, View, TouchableOpacity, Text, Dimensions } from "react-native"
-import { COLOR_SCHEME } from "../constans/colorScheme"
-import { hideTextOverflow } from "../helpers/hideTextOverflow"
+import React, { useEffect, useState } from "react";
+import { TextInput, FlatList, StyleSheet, View, TouchableOpacity, Text, Dimensions } from "react-native";
+import { COLOR_SCHEME } from "../constans/colorScheme";
+import { hideTextOverflow } from "../helpers/hideTextOverflow";
 
 interface IProps {
   data: [{
@@ -12,7 +12,6 @@ interface IProps {
 
 export const List: React.FunctionComponent<IProps> = ({ data, onButtonPress }):JSX.Element => {
 
-  const [ isReadyMount, setIsReadyMount ] = useState<boolean>(true);
   const [ inputValue, setInputValue ] = useState<string>('');
   const [ filtredCurrencies, setfFltredCurrencies ] = useState<{[key: string]: string}[] | null>(null);
 
@@ -31,39 +30,35 @@ export const List: React.FunctionComponent<IProps> = ({ data, onButtonPress }):J
   }
 
   return (
-    <>
-      {isReadyMount && (
-        <View style={styles.wrapper}>
-          <View style={styles.popUp}>
-            <TextInput
-              value={inputValue}
-              style={styles.input}
-              onChangeText={onInputChange}
-              placeholder="Search"
-            />
-            <View style={styles.area}>
-              <FlatList 
-                style={styles.list}
-                data={filtredCurrencies ? filtredCurrencies : data}
-                showsVerticalScrollIndicator={false}
-                keyExtractor={(item) => item.currency}
-                renderItem={({ item }) => {
-                  return (
-                    <TouchableOpacity 
-                      style={styles.buttonWrapper}
-                      onPress={onButtonPressHandle(item.currency, onButtonPress)}
-                    >
-                      <Text style={styles.currencyName}>{item.currency}</Text>
-                      <Text style={styles.currencyDesc}>{hideTextOverflow(item.country, 25)}</Text>
-                    </TouchableOpacity>
-                  )
-                }}
-              />
-            </View>
-          </View>
+    <View style={styles.wrapper}>
+      <View style={styles.popUp}>
+        <TextInput
+          value={inputValue}
+          style={styles.input}
+          onChangeText={onInputChange}
+          placeholder="Search"
+        />
+        <View style={styles.area}>
+          <FlatList 
+            style={styles.list}
+            data={filtredCurrencies ? filtredCurrencies : data}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item) => item.currency}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity 
+                  style={styles.buttonWrapper}
+                  onPress={onButtonPressHandle(item.currency, onButtonPress)}
+                >
+                  <Text style={styles.currencyName}>{item.currency}</Text>
+                  <Text style={styles.currencyDesc}>{hideTextOverflow(item.country, 25)}</Text>
+                </TouchableOpacity>
+              )
+            }}
+          />
         </View>
-      )}
-    </>
+      </View>
+    </View>
   )
 }
 
@@ -83,11 +78,6 @@ const styles = StyleSheet.create({
     maxWidth: 200,
     borderRadius: 10,
     backgroundColor: '#fff',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 1,
-    elevation: 3,
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',

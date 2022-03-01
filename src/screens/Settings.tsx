@@ -184,7 +184,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: '80%',
     textAlign: 'center',
-    marginTop: 20
+    marginTop: 20,
+    color: COLOR_SCHEME.textColor
   },
   ratesContainer: {
     width: '100%',

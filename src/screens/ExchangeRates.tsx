@@ -27,7 +27,7 @@ export const ExchangeRates: React.FunctionComponent = () => {
                 <Text
                   style={styles.rateText}
                 >
-                  {`1 ${item.from} = ${item.rateAmount} ${item.to}`}
+                  {`1 ${item.to} = ${ (1 / item.rateAmount).toFixed(2)} ${item.from}`}
                 </Text>}
             >
             </FlatList>
@@ -48,14 +48,15 @@ const styles = StyleSheet.create({
   topArticle: {
     marginVertical: 15,
     width: "80%",
-    textAlign: 'center'
+    textAlign: 'center',
+    color: COLOR_SCHEME.textColor
   },
   rateText: {
     paddingVertical: 10,
     paddingHorizontal: 10,
     marginVertical: 5,
     backgroundColor: COLOR_SCHEME.colorLight,
-    color: '#000',
+    color: COLOR_SCHEME.background,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.3,

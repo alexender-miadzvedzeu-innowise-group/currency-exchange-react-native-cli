@@ -12,6 +12,7 @@ import { storeData, getData, removeData } from '../core/helpers/asyncStorage';
 import { getUserCountryLocationSuccessAction } from '../core/actions/country';
 import { getExchangeRatesThunk } from '../core/thunks/currency';
 import { ASYNC_STORAGE_KEYS } from '../core/constans/asyncStorageKeys';
+import AnimatedShowGate from '../core/components/AnimatedShowGate';
 
 export const Home: React.FunctionComponent = () => {
 
@@ -56,6 +57,87 @@ export const Home: React.FunctionComponent = () => {
     }))
   }
 
+  const styles = StyleSheet.create({
+    wrapper: { 
+      flex: 1, 
+      alignItems: 'center',
+      backgroundColor: COLOR_SCHEME.background
+    },
+    text: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+      width: '80%',
+      textAlign: 'justify',
+      marginTop: 20,
+      color: COLOR_SCHEME.textColor
+    },
+    specifyWrapper: {
+      width: '100%',
+      position: 'absolute',
+      top: 0,
+      paddingTop: 130,
+      flex: 1,
+      justifyContent: 'flex-start',
+      alignItems: 'center'
+    },
+    specifyWrapperTitle: {
+      fontSize: 17,
+      color: COLOR_SCHEME.textColor
+    },
+    userChoseCurrency: {
+      position: 'absolute',
+      top: '60%',
+      textTransform: 'uppercase',
+      color: COLOR_SCHEME.textColor,
+      fontWeight: 'bold'
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: COLOR_SCHEME.colorDark,
+      position: 'relative',
+      overflow: 'hidden',
+      borderRadius: 25,
+      marginTop: 15,
+  
+    },
+    buttonBackground: {
+      position: 'absolute',
+      height: 33,
+      width: 120,
+      backgroundColor: COLOR_SCHEME.colorDark
+    },
+    button: {
+      width: 120,
+      borderStyle: 'solid',
+      // backgroundColor: COLOR_SCHEME.colorDark,
+      paddingVertical: 7,
+      // borderRadius: 3,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    buttonText: {
+      textTransform: 'uppercase',
+      color: COLOR_SCHEME.textColor
+    }
+  })
+
+  const dinoStyles = country.userChoseCurrency ? {
+    ...styles,
+    buttonBackground: {
+      ...styles.buttonBackground,
+      left: 0
+    }
+  } : {
+    ...styles,
+    buttonBackground: {
+      ...styles.buttonBackground,
+      right: 0,
+    }
+  }
+
   return (
     <View style={styles.wrapper}>
       {!country.isLoading ? (
@@ -76,26 +158,26 @@ export const Home: React.FunctionComponent = () => {
           <View style={styles.specifyWrapper}>
             <Text style={styles.specifyWrapperTitle}>Here you can specify your currency</Text>
             {!showList ? (
-              <>
+              <View style={styles.buttonContainer}>
+                <View style={dinoStyles.buttonBackground}/>
                 <TouchableOpacity 
                   style={styles.button}
                   onPress={onButtonPress}
                 >
                   <Text style={styles.buttonText}>Chose</Text>
                 </TouchableOpacity>
-                <Text>Or</Text>
                 <TouchableOpacity 
                   style={styles.button}
                   onPress={removeDataFN}
                 >
                   <Text style={styles.buttonText}>Use default</Text>
                 </TouchableOpacity>
-              </>
+              </View>
             ) : showList && currencies && (
-              <List
-                data={currencies}
-                onButtonPress={onListButtonPress}
-              />
+              // <AnimatedShowGate>
+              //   <List data={currencies} onButtonPress={onListButtonPress}/>
+              // </AnimatedShowGate>
+              <List data={currencies} onButtonPress={onListButtonPress}/>
             )}
           </View>
         </>
@@ -103,53 +185,3 @@ export const Home: React.FunctionComponent = () => {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrapper: { 
-    flex: 1, 
-    alignItems: 'center',
-    backgroundColor: COLOR_SCHEME.background
-  },
-  text: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    width: '80%',
-    textAlign: 'justify',
-    marginTop: 20
-  },
-  specifyWrapper: {
-    width: '100%',
-    position: 'absolute',
-    top: 0,
-    paddingTop: 130,
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center'
-  },
-  specifyWrapperTitle: {
-    fontSize: 17,
-  },
-  userChoseCurrency: {
-    position: 'absolute',
-    top: '60%',
-    textTransform: 'uppercase',
-    color: COLOR_SCHEME.colorDark,
-    fontWeight: 'bold'
-  },
-  button: {
-    width: 120,
-    borderStyle: 'solid',
-    backgroundColor: COLOR_SCHEME.colorDark,
-    paddingVertical: 7,
-    marginVertical: 10,
-    borderRadius: 3,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  buttonText: {
-    textTransform: 'uppercase',
-    color: '#fff'
-  }
-})
-

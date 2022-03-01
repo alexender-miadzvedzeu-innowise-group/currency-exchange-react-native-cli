@@ -66,12 +66,12 @@ export const Converter: React.FunctionComponent = () => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={!from ? styles.button : styles.buttonFilled} onPress={chooseCurrency('From')}>
             <View>
-              <Text>{!from ? 'From' : from}</Text>
+              <Text style={styles.buttonText}>{!from ? 'From' : from}</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={!to ? styles.button : styles.buttonFilled} onPress={chooseCurrency('To')}>
             <View>
-              <Text>{!to ? 'To' : to}</Text>
+              <Text style={styles.buttonText}>{!to ? 'To' : to}</Text>
             </View>
           </TouchableOpacity>
         </View>  
@@ -81,7 +81,7 @@ export const Converter: React.FunctionComponent = () => {
         </View>  
         <TouchableOpacity style={styles.clearButton} onPress={onPressResetButton}>
           <View>
-            <Text>Reset</Text>
+            <Text style={styles.buttonText}>Reset</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -99,14 +99,15 @@ const styles = StyleSheet.create({
   topArticle: {
     marginVertical: 15,
     width: "80%",
-    textAlign: 'center'
+    textAlign: 'center',
+    color: COLOR_SCHEME.textColor
   },
   converterContainer: {
     width: '80%',
     height: 130,
     borderRadius: 15,
     padding: 10,
-    backgroundColor: "#fff",
+    backgroundColor: COLOR_SCHEME.colorLight,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -119,11 +120,11 @@ const styles = StyleSheet.create({
   button: {
     marginHorizontal: "10%",
     height: 30,
-    backgroundColor: COLOR_SCHEME.colorLight,
+    backgroundColor: COLOR_SCHEME.colorMiddle,
     borderRadius: 10,
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   buttonFilled: {
     marginHorizontal: "10%",
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   inputContainer: {
     flex: 1,
@@ -158,5 +159,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  buttonText: {
+    color: COLOR_SCHEME.textColor
   }
 })

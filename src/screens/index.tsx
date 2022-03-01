@@ -9,7 +9,8 @@ import { useEffect } from 'react';
 import { getUserCountryLocationThunk } from '../core/thunks/country';
 import { listAllCurrenciesThunk, getExchangeRatesThunk } from '../core/thunks/currency';
 import { ExchangeRates } from './ExchangeRates';
-
+import { CutomDrawer } from './CustomDrawer';
+import { COLOR_SCHEME } from '../core/constans/colorScheme';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,7 +23,15 @@ export const MyDrawer: React.FunctionComponent = () => {
   }, [])
   
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator 
+      drawerContent={props => <CutomDrawer {...props} />} 
+      screenOptions={{ 
+        headerShown: false,
+        drawerActiveBackgroundColor: COLOR_SCHEME.colorMiddle,
+        drawerActiveTintColor: COLOR_SCHEME.background,
+        drawerInactiveTintColor: COLOR_SCHEME.colorLight
+      }}
+    >
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Converter" component={Converter} />
       <Drawer.Screen name="Exchange rates" component={ExchangeRates} />
